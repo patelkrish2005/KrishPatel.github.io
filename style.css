@@ -74,6 +74,13 @@ body {
     transition: transform 0.3s ease;
 }
 
+.card-img {
+    width: 100%;       /* Keeps the image filling the width of the card */
+    height: 350px;     /* Increase this number to make them taller */
+    object-fit: cover;  /* This ensures the image isn't stretched or squished */
+    border-radius: 8px; /* Optional: rounds the corners of the image */
+    margin-bottom: 15px; /* Adds space between the image and the text below */
+}
 .card:hover {
     transform: translateY(-5px);
     border-color: var(--accent-color);
