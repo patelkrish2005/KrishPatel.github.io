@@ -3,173 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Shiv Patel | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0d1117;
-            --sidebar-bg: #161b22;
-            --accent-color: #58a6ff; /* Blue accent */
-            --text-main: #c9d1d9;
-            --card-bg: #21262d;
-            --tag-bg: #238636; /* Green for tags */
+            --bg-dark: #0f172a;
+            --sidebar-bg: #1e293b;
+            --accent-blue: #38bdf8;
+            --text-white: #f8fafc;
+            --text-gray: #94a3b8;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-white);
             display: flex;
+            min-height: 100vh;
         }
 
-        /* Sidebar Navigation */
-        .sidebar {
-            width: 260px;
-            height: 100vh;
+        /* --- SIDEBAR --- */
+        nav {
+            width: 280px;
             background: var(--sidebar-bg);
+            height: 100vh;
             position: fixed;
-            padding: 40px 20px;
-            border-right: 1px solid #30363d;
+            padding: 40px 30px;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            border-right: 1px solid rgba(255,255,255,0.1);
         }
 
-        .profile-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 3px solid var(--accent-color);
-            margin-bottom: 15px;
-            object-fit: cover;
-        }
-
-        .nav-links { width: 100%; margin-top: 20px; }
-        .nav-links a {
-            display: block;
-            color: var(--text-main);
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 50px;
             text-decoration: none;
-            padding: 12px;
-            border-radius: 8px;
+        }
+
+        .nav-links { list-style: none; }
+        .nav-links li { margin-bottom: 20px; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-gray);
+            font-weight: 500;
             transition: 0.3s;
-            margin-bottom: 5px;
+            font-size: 1.1rem;
         }
-        .nav-links a:hover { background: #30363d; color: var(--accent-color); }
+        .nav-links a:hover { color: var(--accent-blue); padding-left: 10px; }
 
-        /* Main Content Area */
-        .main-content {
-            margin-left: 300px;
-            padding: 40px;
-            max-width: 900px;
-        }
-
-        section { margin-bottom: 80px; scroll-margin-top: 40px; }
-        h2 { border-bottom: 2px solid var(--accent-color); padding-bottom: 10px; display: inline-block; }
-
-        /* Card Styling */
-        .card {
-            background: var(--card-bg);
-            border: 1px solid #30363d;
-            padding: 20px;
-            border-radius: 12px;
-            margin-top: 20px;
-            transition: transform 0.2s;
-        }
-        .card:hover { transform: translateY(-5px); border-color: var(--accent-color); }
-
-        /* Tag Styling */
-        .tag-container { margin-top: 15px; }
-        .tag {
-            background: rgba(88, 166, 255, 0.1);
-            color: var(--accent-color);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-right: 5px;
-            border: 1px solid var(--accent-color);
+        /* --- MAIN CONTENT --- */
+        main {
+            margin-left: 280px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
         }
 
-        .role { font-weight: bold; color: var(--accent-color); display: block; margin-bottom: 10px; }
-        .date { font-size: 0.85rem; color: #8b949e; float: right; }
-        
-        @media (max-width: 768px) {
+        .hero-container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            max-width: 1100px;
+        }
+
+        .hero-text { flex: 1; }
+        .hero-text h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        .hero-text h2 { font-size: 1.5rem; color: var(--accent-blue); margin-bottom: 20px; font-weight: 400; }
+        .hero-text p { font-size: 1.1rem; color: var(--text-gray); line-height: 1.6; margin-bottom: 30px; }
+
+        .btn-group { display: flex; gap: 15px; }
+        .btn {
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .btn-primary { background: var(--accent-blue); color: #000; }
+        .btn-secondary { border: 1px solid var(--text-gray); color: var(--text-white); }
+        .btn:hover { opacity: 0.8; transform: translateY(-2px); }
+
+        /* --- PROFILE IMAGE --- */
+        .hero-image img {
+            width: 400px;
+            height: 550px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 20px 20px 0px rgba(56, 189, 248, 0.1);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 900px) {
             body { flex-direction: column; }
-            .sidebar { position: relative; width: 100%; height: auto; }
-            .main-content { margin-left: 0; padding: 20px; }
+            nav { width: 100%; height: auto; position: relative; padding: 20px; }
+            main { margin-left: 0; padding: 30px; }
+            .hero-container { flex-direction: column-reverse; text-align: center; }
+            .hero-image img { width: 100%; height: auto; max-width: 350px; }
+            .btn-group { justify-content: center; }
         }
     </style>
 </head>
 <body>
 
-    <aside class="sidebar">
-        <img src="cachedImage.png" alt="Profile" class="profile-img">
-        
-        <h2>Krish Patel</h2>
-        <p style="text-align: center;">Aspiring Mechatronics Engineering Student at Toronto Metropolitan Univeristy</p>
+    <nav>
+        <a href="#" class="logo">Shiv Patel</a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#competitions">Competitions</a></li>
+            <li><a href="#clubs">Clubs</a></li>
+            <li><a href="#volunteering">Volunteering</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </nav>
 
-        <nav class="nav-links">
-            <a href="#about">About Me</a>
-            <a href="#projects">Projects</a>
-            <a href="#competitions">Competitions</a>
-            <a href="#clubs">Clubs & Volunteering</a>
-        </nav>
-    </aside>
-
-    <main class="main-content">
-        
-        <section id="about">
-            <h2>About Me</h2>
-            <p>
-                As a Mechatronics Engineering Co-op student, I am passionate about technology and problem solving. I have a strong interest in robotics, embedded systems, and machine learning, and l am eager to apply my knowledge through hands on projects and co-op opportunities.
-                I am always looking to expand my technical skills and gain real world experience in the field. My goal is to contribute to innovative engineering solutions while continuously learning and growing as an engineer.
-                I'm open to connecting with others in the industry-feel free to reach out!
-            </p>
-        </section>
-
-        <section id="projects">
-            <h2>Projects</h2>
-            
-            <div class="card">
-                <span class="date">2025</span>
-                <h3>Project Title One</h3>
-                <p>A brief explanation of what the project does. Mention the problem you solved.</p>
-                <div class="tag-container">
-                    <span class="tag">HTML/CSS</span>
-                    <span class="tag">JavaScript</span>
-                    <span class="tag">GitHub</span>
+    <main id="home">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>Hi, I am Shiv Patel</h1>
+                <h2>Aerospace Engineering Student</h2>
+                <p>
+                    Passionate about Aerodynamics, 3D Modeling, and Manufacturing. 
+                    I specialize in RC Planes, Rockets, and collaborative engineering projects.
+                </p>
+                <div class="btn-group">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#about" class="btn btn-secondary">About Me</a>
                 </div>
             </div>
-        </section>
 
-        <section id="competitions">
-            <h2>Competitions</h2>
-            <div class="card">
-                <span class="date">Nov 2025</span>
-                <h3>City Hackathon</h3>
-                <span class="role">2nd Place Winner</span>
-                <p>Developed a prototype for a waste-management app in 24 hours with a team of three.</p>
+            <div class="hero-image">
+                <img src="https://shivpatel-5.github.io/ShivPortfolio/HomePage.jpg" alt="Shiv Patel">
             </div>
-        </section>
-
-        <section id="clubs">
-            <h2>Clubs & Volunteering</h2>
-            
-            <div class="card">
-                <span class="date">2024 - Present</span>
-                <h3>Coding Club</h3>
-                <span class="role">Vice President</span>
-                <p>Organizing weekly workshops for 50+ students on data structures and algorithms.</p>
-            </div>
-
-            <div class="card">
-                <span class="date">Summer 2024</span>
-                <h3>Local Library Tech Assistant</h3>
-                <span class="role">Volunteer</span>
-                <p>Helping senior citizens navigate modern technology and software.</p>
-            </div>
-        </section>
-
+        </div>
     </main>
 
 </body>
