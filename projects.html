@@ -5,29 +5,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects | Shiv Patel</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --bg-dark: #0f172a; --sidebar-bg: #1e293b; --accent-blue: #38bdf8; --text-white: #f8fafc; --text-gray: #94a3b8; }
+        :root {
+            --bg-dark: #0f172a;
+            --sidebar-bg: #1e293b;
+            --accent-blue: #38bdf8;
+            --text-white: #f8fafc;
+            --text-gray: #94a3b8;
+            --card-bg: #1e293b;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-dark); color: var(--text-white); display: flex; }
-        
-        nav { width: 280px; background: var(--sidebar-bg); height: 100vh; position: fixed; padding: 40px 30px; border-right: 1px solid rgba(255,255,255,0.1); }
-        .logo { font-size: 1.5rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 50px; text-decoration: none; display: block; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* --- SHARED SIDEBAR --- */
+        nav {
+            width: 280px;
+            background: var(--sidebar-bg);
+            height: 100vh;
+            position: fixed;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 50px; text-decoration: none; }
         .nav-links { list-style: none; }
         .nav-links li { margin-bottom: 20px; }
-        .nav-links a { text-decoration: none; color: var(--text-gray); font-size: 1.1rem; transition: 0.3s; }
-        .nav-links a:hover { color: var(--accent-blue); }
+        .nav-links a { text-decoration: none; color: var(--text-gray); font-weight: 500; transition: 0.3s; font-size: 1.1rem; }
+        .nav-links a:hover { color: var(--accent-blue); padding-left: 8px; }
+        .nav-links a.active { color: var(--text-white); font-weight: 700; border-left: 3px solid var(--accent-blue); padding-left: 10px; }
 
-        main { margin-left: 280px; width: 100%; padding: 80px 50px; }
-        h1 { font-size: 2.5rem; margin-bottom: 40px; border-bottom: 2px solid var(--accent-blue); display: inline-block; padding-bottom: 10px; }
+        /* --- PROJECTS CONTENT --- */
+        main {
+            margin-left: 280px;
+            width: 100%;
+            padding: 60px 50px;
+        }
 
-        /* Project Grid */
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: #1e293b; border-radius: 12px; overflow: hidden; border: 1px solid #334155; transition: 0.3s; }
-        .card:hover { transform: translateY(-10px); border-color: var(--accent-blue); }
-        .card-img { width: 100%; height: 200px; object-fit: cover; }
-        .card-content { padding: 20px; }
-        .card-content h3 { margin-bottom: 10px; color: var(--accent-blue); }
-        .tag { background: rgba(56, 189, 248, 0.1); color: var(--accent-blue); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; margin-right: 5px; border: 1px solid var(--accent-blue); }
+        header { margin-bottom: 50px; }
+        header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        header p { color: var(--text-gray); font-size: 1.1rem; }
+
+        /* Project Grid Layout */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 1px solid #334155;
+        }
+
+        .card-content { padding: 25px; }
+        .card-content h3 { font-size: 1.4rem; margin-bottom: 12px; color: var(--accent-blue); }
+        .card-content p { color: var(--text-gray); line-height: 1.6; margin-bottom: 20px; font-size: 0.95rem; }
+
+        .tag-group { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent-blue);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        @media (max-width: 900px) {
+            body { flex-direction: column; }
+            nav { width: 100%; height: auto; position: relative; padding: 20px; }
+            main { margin-left: 0; padding: 30px; }
+            .project-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -36,7 +112,7 @@
         <a href="index.html" class="logo">Shiv Patel</a>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="projects.html" style="color: white;">Projects</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
             <li><a href="competitions.html">Competitions</a></li>
             <li><a href="clubs.html">Clubs</a></li>
             <li><a href="volunteering.html">Volunteering</a></li>
@@ -45,33 +121,39 @@
     </nav>
 
     <main>
-        <h1>Engineering Projects</h1>
+        <header>
+            <h1>Technical Projects</h1>
+            <p>A collection of my work in Aerospace Engineering and beyond.</p>
+        </header>
 
         <div class="project-grid">
             <div class="card">
-                <img src="project-image1.jpg" alt="Project 1" class="card-img">
+                <img src="project1-thumb.jpg" alt="RC Plane Design" class="card-img">
                 <div class="card-content">
-                    <h3>RC Aircraft Design</h3>
-                    <p>Designed a fixed-wing UAV using SolidWorks and tested aerodynamic stability in XFLR5.</p>
-                    <div style="margin-top: 15px;">
+                    <h3>RC Aircraft Design & Testing</h3>
+                    <p>Designed a custom fixed-wing UAV with optimized airfoil for low-speed stability. Performed structural analysis using SolidWorks.</p>
+                    <div class="tag-group">
                         <span class="tag">SolidWorks</span>
                         <span class="tag">Aerodynamics</span>
+                        <span class="tag">3D Printing</span>
                     </div>
                 </div>
             </div>
 
             <div class="card">
-                <img src="project-image2.jpg" alt="Project 2" class="card-img">
+                <img src="project2-thumb.jpg" alt="Rocketry Project" class="card-img">
                 <div class="card-content">
-                    <h3>Rocketry Avionics</h3>
-                    <p>Developed a flight computer system for a high-powered rocket using Arduino and BMP280 sensors.</p>
-                    <div style="margin-top: 15px;">
+                    <h3>Avionics Flight Computer</h3>
+                    <p>Built a real-time data logging system for high-altitude rockets using Arduino, recording velocity, pressure, and GPS coordinates.</p>
+                    <div class="tag-group">
                         <span class="tag">Arduino</span>
                         <span class="tag">C++</span>
+                        <span class="tag">Sensors</span>
                     </div>
                 </div>
             </div>
-        </div>
+            
+            </div>
     </main>
 
 </body>
