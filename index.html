@@ -4,55 +4,172 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --sidebar-bg: #161b22;
+            --accent-color: #58a6ff; /* Blue accent */
+            --text-main: #c9d1d9;
+            --card-bg: #21262d;
+            --tag-bg: #238636; /* Green for tags */
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 260px;
+            height: 100vh;
+            background: var(--sidebar-bg);
+            position: fixed;
+            padding: 40px 20px;
+            border-right: 1px solid #30363d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid var(--accent-color);
+            margin-bottom: 15px;
+            object-fit: cover;
+        }
+
+        .nav-links { width: 100%; margin-top: 20px; }
+        .nav-links a {
+            display: block;
+            color: var(--text-main);
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 8px;
+            transition: 0.3s;
+            margin-bottom: 5px;
+        }
+        .nav-links a:hover { background: #30363d; color: var(--accent-color); }
+
+        /* Main Content Area */
+        .main-content {
+            margin-left: 300px;
+            padding: 40px;
+            max-width: 900px;
+        }
+
+        section { margin-bottom: 80px; scroll-margin-top: 40px; }
+        h2 { border-bottom: 2px solid var(--accent-color); padding-bottom: 10px; display: inline-block; }
+
+        /* Card Styling */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid #30363d;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            transition: transform 0.2s;
+        }
+        .card:hover { transform: translateY(-5px); border-color: var(--accent-color); }
+
+        /* Tag Styling */
+        .tag-container { margin-top: 15px; }
+        .tag {
+            background: rgba(88, 166, 255, 0.1);
+            color: var(--accent-color);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+            border: 1px solid var(--accent-color);
+        }
+
+        .role { font-weight: bold; color: var(--accent-color); display: block; margin-bottom: 10px; }
+        .date { font-size: 0.85rem; color: #8b949e; float: right; }
+        
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            .sidebar { position: relative; width: 100%; height: auto; }
+            .main-content { margin-left: 0; padding: 20px; }
+        }
+    </style>
 </head>
 <body>
 
-    <div class="container">
-        <aside class="sidebar">
-            <div class="profile">
-                <img src="profile-pic.jpg" alt="Profile Picture" class="profile-img">
-                <h1>Your Name</h1>
-                <p>Developer | Designer | Team Leader</p>
-            </div>
-            <nav class="nav-links">
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#team">Team</a>
-                <a href="#achievements">Achievements</a>
-            </nav>
-            <div class="socials">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-            </div>
-        </aside>
+    <aside class="sidebar">
+        <img src="https://via.placeholder.com/150" alt="Profile" class="profile-img">
+        
+        <h2>Shiv Patel</h2>
+        <p style="text-align: center;">Computer Science Student & Tech Enthusiast</p>
 
-        <main class="content">
-            <section id="about" class="page">
-                <h2>About Me</h2>
-                <p>Welcome! I specialize in building collaborative solutions...</p>
-            </section>
+        <nav class="nav-links">
+            <a href="#about">About Me</a>
+            <a href="#projects">Projects</a>
+            <a href="#competitions">Competitions</a>
+            <a href="#clubs">Clubs & Volunteering</a>
+        </nav>
+    </aside>
 
-            <section id="projects" class="page">
-                <h2>Projects</h2>
-                <div class="grid">
-                    <div class="card">
-                        <h3>Project One</h3>
-                        <p>Description of what you built and the tech stack used.</p>
-                    </div>
+    <main class="main-content">
+        
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                Hi! I am a passionate developer currently focusing on [Your Interest]. 
+                I love working in teams to solve complex problems and learning new technologies.
+            </p>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            
+            <div class="card">
+                <span class="date">2025</span>
+                <h3>Project Title One</h3>
+                <p>A brief explanation of what the project does. Mention the problem you solved.</p>
+                <div class="tag-container">
+                    <span class="tag">HTML/CSS</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">GitHub</span>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section id="team" class="page">
-                <h2>Teams & Leadership</h2>
-                <div class="card">
-                    <h3>Role Name @ Organization</h3>
-                    <p>Brief description of your impact on the team.</p>
-                </div>
-            </section>
-        </main>
-    </div>
+        <section id="competitions">
+            <h2>Competitions</h2>
+            <div class="card">
+                <span class="date">Nov 2025</span>
+                <h3>City Hackathon</h3>
+                <span class="role">2nd Place Winner</span>
+                <p>Developed a prototype for a waste-management app in 24 hours with a team of three.</p>
+            </div>
+        </section>
+
+        <section id="clubs">
+            <h2>Clubs & Volunteering</h2>
+            
+            <div class="card">
+                <span class="date">2024 - Present</span>
+                <h3>Coding Club</h3>
+                <span class="role">Vice President</span>
+                <p>Organizing weekly workshops for 50+ students on data structures and algorithms.</p>
+            </div>
+
+            <div class="card">
+                <span class="date">Summer 2024</span>
+                <h3>Local Library Tech Assistant</h3>
+                <span class="role">Volunteer</span>
+                <p>Helping senior citizens navigate modern technology and software.</p>
+            </div>
+        </section>
+
+    </main>
 
 </body>
 </html>
