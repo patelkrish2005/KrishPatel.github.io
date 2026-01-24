@@ -24,7 +24,7 @@
             min-height: 100vh;
         }
 
-        /* --- SIDEBAR --- */
+        /* --- SIDEBAR NAVIGATION --- */
         nav {
             width: 280px;
             background: var(--sidebar-bg);
@@ -46,6 +46,8 @@
 
         .nav-links { list-style: none; }
         .nav-links li { margin-bottom: 20px; }
+        
+        /* THE IMPORTANT PART: File Links */
         .nav-links a {
             text-decoration: none;
             color: var(--text-gray);
@@ -53,9 +55,10 @@
             transition: 0.3s;
             font-size: 1.1rem;
         }
-        .nav-links a:hover { color: var(--accent-blue); padding-left: 10px; }
+        .nav-links a:hover { color: var(--accent-blue); padding-left: 8px; }
+        .nav-links a.active { color: var(--text-white); font-weight: 700; }
 
-        /* --- MAIN CONTENT --- */
+        /* --- CONTENT AREA --- */
         main {
             margin-left: 280px;
             width: 100%;
@@ -87,9 +90,7 @@
         }
         .btn-primary { background: var(--accent-blue); color: #000; }
         .btn-secondary { border: 1px solid var(--text-gray); color: var(--text-white); }
-        .btn:hover { opacity: 0.8; transform: translateY(-2px); }
 
-        /* --- PROFILE IMAGE --- */
         .hero-image img {
             width: 400px;
             height: 550px;
@@ -98,11 +99,10 @@
             box-shadow: 20px 20px 0px rgba(56, 189, 248, 0.1);
         }
 
-        /* Mobile Responsive */
         @media (max-width: 900px) {
             body { flex-direction: column; }
             nav { width: 100%; height: auto; position: relative; padding: 20px; }
-            main { margin-left: 0; padding: 30px; }
+            main { margin-left: 0; }
             .hero-container { flex-direction: column-reverse; text-align: center; }
             .hero-image img { width: 100%; height: auto; max-width: 350px; }
             .btn-group { justify-content: center; }
@@ -112,30 +112,30 @@
 <body>
 
     <nav>
-        <a href="#" class="logo">Krish Patel</a>
+        <a href="index.html" class="logo">Krish Patel</a>
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#competitions">Competitions</a></li>
-            <li><a href="#clubs">Clubs</a></li>
-            <li><a href="#volunteering">Volunteering</a></li>
-            <li><a href="#about">About</a></li>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="competitions.html">Competitions</a></li>
+            <li><a href="clubs.html">Clubs</a></li>
+            <li><a href="volunteering.html">Volunteering</a></li>
+            <li><a href="about.html">About</a></li>
         </ul>
     </nav>
 
-    <main id="home">
+    <main>
         <div class="hero-container">
             <div class="hero-text">
                 <h1>Hi, I am Krish Patel</h1>
                 <h2>Mechatronics Engineering Student</h2>
                 <p>
-                    Mechatronics Engineering student with a strong interest in hands-on engineering, system integration, and problem-solving. 
+                    Mechatronics Engineering student with a strong interest in hands-on engineering, system integration, and problem-solving.
                     Experienced in working with sensors, control systems, and embedded programming through academic projects.
                     Eager to contribute to real-world engineering teams and learn in a fast-paced technical environment.
                 </p>
                 <div class="btn-group">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#about" class="btn btn-secondary">About Me</a>
+                    <a href="projects.html" class="btn btn-primary">View My Work</a>
+                    <a href="about.html" class="btn btn-secondary">About Me</a>
                 </div>
             </div>
 
