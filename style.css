@@ -1,0 +1,80 @@
+:root {
+    --bg-color: #0d1117;
+    --sidebar-bg: #161b22;
+    --accent-color: #58a6ff;
+    --text-main: #c9d1d9;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+.container {
+    display: flex;
+}
+
+/* Sidebar Layout */
+.sidebar {
+    width: 300px;
+    height: 100vh;
+    background: var(--sidebar-bg);
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    border-right: 1px solid #30363d;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.nav-links a {
+    display: block;
+    color: var(--text-main);
+    text-decoration: none;
+    margin: 20px 0;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+/* Content Layout */
+.content {
+    margin-left: 340px; /* Offset for sidebar */
+    width: calc(100% - 340px);
+}
+
+.page {
+    min-height: 100vh;
+    padding: 100px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card {
+    background: #21262d;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #30363d;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+}
